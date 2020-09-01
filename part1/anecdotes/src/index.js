@@ -4,28 +4,27 @@ import ReactDOM from 'react-dom'
 const App = (props) => {
   const [selected, setSelected] = useState(0)
   const [countVote, setCountVote] = useState(0)
-  const points = Array.apply(null, new Array(6)).map(Number.prototype.valueOf, 0);
-  const copy = [...points]
+  const [points, setPoints] = useState(Array.apply(null, new Array(6)).map(Number.prototype.valueOf, 0))
+
+
   const displayNext = () => {
+    let copy = [...points]
     setSelected(Math.floor(Math.random() * Math.floor(6)))
-    resetVoteCount()
-    console.log(selected)
-  }
-  const vote = () => {
-    copy[selected] += 1
-    console.log('copy', copy)
+    setCountVote(copy[selected])
     console.log('selected', selected)
-    incrementVote()
+    console.log('copy[selected]', copy[selected])
+    console.log('copy', copy)
   }
 
-  const incrementVote = () => {
-    setCountVote(countVote + 1)
+  const vote = () => {
+    let copy = [...points]
+    copy[selected] += 1
+    setCountVote(copy[selected])
+    setPoints([...copy])
+    console.log('selected', selected)
+    console.log('copy[selected]', copy[selected])
+    console.log('copy', copy)
   }
-
-  const resetVoteCount = () => {
-    setCountVote(0)
-  }
-
 
   return (
     <div>
