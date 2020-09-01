@@ -12,7 +12,7 @@ const Part = (props) => {
   return <p>{props.name} {props.nOfEx}</p>
 }
 
-const Content = () => {
+const Content = (props) => {
   console.log(props)
   return (
     <div>
