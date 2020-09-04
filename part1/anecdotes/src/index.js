@@ -9,11 +9,9 @@ const App = (props) => {
 
   const displayNext = () => {
     let copy = [...points]
-    setSelected(Math.floor(Math.random() * Math.floor(6)))
-    setCountVote(copy[selected])
-    console.log('selected', selected)
-    console.log('copy[selected]', copy[selected])
-    console.log('copy', copy)
+    let randomIndex = Math.floor(Math.random() * Math.floor(6))
+    setSelected(randomIndex)
+    setCountVote(copy[randomIndex])
   }
 
   const vote = () => {
@@ -21,9 +19,6 @@ const App = (props) => {
     copy[selected] += 1
     setCountVote(copy[selected])
     setPoints([...copy])
-    console.log('selected', selected)
-    console.log('copy[selected]', copy[selected])
-    console.log('copy', copy)
   }
 
   return (
